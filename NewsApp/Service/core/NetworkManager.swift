@@ -6,3 +6,31 @@
 //
 
 import Foundation
+
+
+class NetworkManager {
+    func createRequest<T:Decodable>(_ endpoint: Endpoint, completion : @escaping (Result<T,Error>) -> ()) {
+        let task = URLSession.shared.dataTask(with: endpoint.request()) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse , response.statusCode >= 200 && response.statusCode <= 299 else {
+                completion(.failure(NSError(domain: "invalid response", code: 0)))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "invalid response data", code: 0)))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(T.self,from: data)
+                completion(.success(decodedData))
+            }catch {}
+        }
+    }
+}
