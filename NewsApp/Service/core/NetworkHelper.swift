@@ -23,17 +23,19 @@ enum Endpoint {
 }
 
 extension Endpoint : EndpointProtocol {
+    
+    
     var baseURL: String {
-        let base = "https://newsapi.org/v2/"
+        let base = "https://newsapi.org"
         return base
     }
     
     var path: String {
         switch self {
         case .getEverything:
-            return "/everything"
+            return "/v2/everything"
         case .topHeadlines:
-            return "/top-headlines"
+            return "/v2/top-headlines"
         }
     }
     
@@ -58,6 +60,7 @@ extension Endpoint : EndpointProtocol {
         
         switch self{
         case .getEverything(let q,let from,let to):
+            print("geteverything seçildi")
             if let q = q {
                 queryItems.append(URLQueryItem(name: "q", value: q))
             }
@@ -68,6 +71,7 @@ extension Endpoint : EndpointProtocol {
                 queryItems.append(URLQueryItem(name: "to", value: to))
             }
         case .topHeadlines(let q,let country,let from,let to):
+            print("topheadlines seçildi")
             if let q = q {
                 queryItems.append(URLQueryItem(name: "q", value: q))
             }
@@ -85,7 +89,13 @@ extension Endpoint : EndpointProtocol {
         queryItems.append(URLQueryItem(name: "apiKey", value: Endpoint.apiKey))
         components.path = path
         components.queryItems = queryItems
-        var request = URLRequest(url: components.url!)
+        print(baseURL)
+        print(components.queryItems)
+        guard let url = components.url else{
+            fatalError("url atanmadı")
+        }
+        print(url)
+        var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
         return request
