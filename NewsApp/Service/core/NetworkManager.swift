@@ -1,10 +1,3 @@
-//
-//  NetworkManager.swift
-//  NewsApp
-//
-//  Created by macbook pro on 8.12.2023.
-//
-
 import Foundation
 
 
@@ -13,7 +6,8 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init(){}
     
-    func createRequest<T:Decodable>(_ endpoint: Endpoint, completion : @escaping (Result<T,Error>) -> ()) {
+    func createRequest<T:Codable>(_ endpoint: Endpoint, completion : @escaping (Result<T,Error>) -> ()) {
+        
         let task = URLSession.shared.dataTask(with: endpoint.request()) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -25,19 +19,20 @@ class NetworkManager {
                 completion(.failure(NSError(domain: "invalid response", code: 0)))
                 return
             }
-            
-            guard let data = data else {
+            guard let Jsondata = data else {
                 completion(.failure(NSError(domain: "invalid response data", code: 0)))
                 return
             }
-            
+            // data geldi
+            //print(String(data: Jsondata, encoding: .utf8) ?? "Invalid JSON")
             do {
-                print("burası neresi amk")
-
-                let decodedData = try JSONDecoder().decode(T.self,from: data)
-                                print(decodedData)
+                let decodedData = try JSONDecoder().decode(T.self, from: Jsondata)
                 completion(.success(decodedData))
-            }catch {}
+            } catch {
+                print("Decode Hatası: \(error)")
+                completion(.failure(error))
+            }
+
         }
         task.resume()
     }

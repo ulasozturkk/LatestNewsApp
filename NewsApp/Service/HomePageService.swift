@@ -13,21 +13,18 @@ class HomePageService {
     static let shared = HomePageService()
     private init(){}
     
-    func setEveryEndpoint(query:String? = nil , from:String? = nil, to:String? = nil) -> Endpoint{
-        return Endpoint.getEverything(q: query, from: from, to: to)
-    }
-    func setTopEndpoint(query:String? = nil,country: String? = nil,to:String? = nil,from:String?=nil) ->Endpoint{
-        return Endpoint.topHeadlines(q: query, country: country, from: from, to: to)
+    func createEndPoint(type: String,q:String? = nil,country:String? = nil,from:String? = nil,to:String?=nil) -> Endpoint{
+        switch type{
+        case "everything":
+            return Endpoint.getEverything(q: q, from: from, to: to)
+        case "top-headlines":
+            return Endpoint.topHeadlines(q: q, country: country, from: from, to: to)
+        default:
+            fatalError("error")
+        }
     }
     
-    func getEveryArticles(endpoint : Endpoint, completion: @escaping (Result<[Article],Error>)->()){
-        print(endpoint)
-        NetworkManager.shared.createRequest(endpoint, completion: completion)
-    }
-    
-    func getTopHeadlineArticles(query: String? = nil,country: String? = nil,from: String? = nil,to: String? = nil,
-                                endpoint: Endpoint,completion: @escaping (Result<[Article],Error>)->()) {
-        
+    func getArticles(endpoint : Endpoint, completion: @escaping (Result<NewsResponse,Error>)->()){
         NetworkManager.shared.createRequest(endpoint, completion: completion)
     }
     

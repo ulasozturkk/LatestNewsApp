@@ -8,7 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var arr = [Any]()
     override func viewDidLoad() {
         view.backgroundColor = .yellow
         super.viewDidLoad()
@@ -17,13 +18,12 @@ class ViewController: UIViewController {
     
     func getdata(){ 
         DispatchQueue.main.async {
-            let myendpoint = HomePageService.shared.setTopEndpoint(country: "tr")
+            let myendpoint = HomePageService.shared.createEndPoint(type: "everything",q:"tesla",from: "2023-12-08",to: "2023-12-09")
             print("endpoint oluşturuldu request atılıyor")
-            let request = HomePageService.shared.getTopHeadlineArticles(endpoint: myendpoint) { res in
-                print("req atıldı sonuç döndü")
+            let request = HomePageService.shared.getArticles(endpoint: myendpoint) { res in
                 switch res{
-                case .success(let models):
-                    print(models)
+                case .success(let data):
+                    print(data.articles[5].urlToImage)
                 case .failure(let err):
                     print(err)
                 }
