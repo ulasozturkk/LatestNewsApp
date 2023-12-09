@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     func getdata(){ 
         DispatchQueue.main.async {
-            let myendpoint = HomePageService.shared.createEndPoint(type: "everything",q:"tesla",from: "2023-12-08",to: "2023-12-09")
+            let myendpoint = HomePageService.shared.createEndPoint(type: "everything",from: "2023-12-08",to: "2023-12-09")
             print("endpoint oluşturuldu request atılıyor")
             let request = HomePageService.shared.getArticles(endpoint: myendpoint) { res in
                 switch res{
