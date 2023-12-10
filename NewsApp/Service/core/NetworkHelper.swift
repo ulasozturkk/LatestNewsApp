@@ -17,7 +17,7 @@ enum HTTPMethod: String {
 }
 
 enum Endpoint {
-    static let apiKey = "52b3912244434becb613cd6869c465fc"
+    static let apiKey = "YOUR-API-KEY"
     case getEverything(q: String?, from: String?, to: String? )
     case topHeadlines(q: String?,country: String? ,from:String?,to: String?,category: String?)
 }
