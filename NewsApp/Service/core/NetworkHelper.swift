@@ -18,8 +18,8 @@ enum HTTPMethod: String {
 
 enum Endpoint {
     static let apiKey = "52b3912244434becb613cd6869c465fc"
-    case getEverything(q: String?, from: String?, to: String?)
-    case topHeadlines(q: String?,country: String? ,from:String?,to: String?)
+    case getEverything(q: String?, from: String?, to: String? )
+    case topHeadlines(q: String?,country: String? ,from:String?,to: String?,category: String?)
 }
 
 extension Endpoint : EndpointProtocol {
@@ -64,19 +64,23 @@ extension Endpoint : EndpointProtocol {
             if let q = q {
                 queryItems.append(URLQueryItem(name: "q", value: q))
             }
+            
             if let from = from {
                 queryItems.append(URLQueryItem(name: "from", value: from))
             }
             if let to = to {
                 queryItems.append(URLQueryItem(name: "to", value: to))
             }
-        case .topHeadlines(let q,let country,let from,let to):
+        case .topHeadlines(let q,let country,let from,let to,let category):
             print("topheadlines seçildi")
             if let q = q {
                 queryItems.append(URLQueryItem(name: "q", value: q))
             }
             if let country = country {
                 queryItems.append(URLQueryItem(name: "country", value: country))
+            }
+            if let category = category {
+                queryItems.append(URLQueryItem(name: "category", value: category))
             }
             if let from = from {
                 queryItems.append(URLQueryItem(name: "from", value: from))

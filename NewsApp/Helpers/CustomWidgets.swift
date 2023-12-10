@@ -35,4 +35,14 @@ struct CustomWidgets {
         return picker
     }
     
+    static func createCustomTextfield(text: String) -> UITextField {
+        let textfield = UITextField()
+        textfield.placeholder = text
+        textfield.borderStyle = .roundedRect
+    
+        textfield.textColor = .black
+        textfield.textAlignment = .center
+        return textfield
+    }
+    
 }

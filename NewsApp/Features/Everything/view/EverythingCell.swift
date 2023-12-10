@@ -1,14 +1,7 @@
-//
-//  TopHeadlinesCell.swift
-//  NewsApp
-//
-//  Created by macbook pro on 10.12.2023.
-//
-
 import UIKit
 import Kingfisher
 
-class TopHeadlinesCell: UITableViewCell {
+class EverythingCell: UITableViewCell {
     
     let newsimageView = UIImageView()
     let scrollView = UIScrollView()
