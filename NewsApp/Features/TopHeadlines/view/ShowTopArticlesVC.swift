@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ShowTopArticlesVC: UIViewController {
+class ShowTopArticlesVC: UIViewController , chooseParameterProtocol {
+    func sendParameters(country: String, category: String?, fromdate: String?, todate: String?) {
+        print(country,category,fromdate,todate)
+    }
+    
     
     // önceki sayfadan gelen değerlere göre query atılacak
     // tableview ve searchbar olacak
@@ -16,6 +20,7 @@ class ShowTopArticlesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

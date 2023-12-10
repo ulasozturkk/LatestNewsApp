@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52541F672B25C392003D0B88 /* CustomWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52541F662B25C392003D0B88 /* CustomWidgets.swift */; };
+		52541F692B25C63C003D0B88 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52541F682B25C63C003D0B88 /* StackViewExtension.swift */; };
 		52770E692B250F28007EBC45 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52770E682B250F28007EBC45 /* UIViewExtension.swift */; };
 		52770E712B251264007EBC45 /* ChooseParamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52770E702B251264007EBC45 /* ChooseParamsVC.swift */; };
 		52770E732B251281007EBC45 /* ShowTopArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52770E722B251281007EBC45 /* ShowTopArticlesVC.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52541F662B25C392003D0B88 /* CustomWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWidgets.swift; sourceTree = "<group>"; };
+		52541F682B25C63C003D0B88 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
 		52770E682B250F28007EBC45 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		52770E702B251264007EBC45 /* ChooseParamsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseParamsVC.swift; sourceTree = "<group>"; };
 		52770E722B251281007EBC45 /* ShowTopArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTopArticlesVC.swift; sourceTree = "<group>"; };
@@ -69,6 +73,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52541F652B25BBCB003D0B88 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				52770E812B251847007EBC45 /* TopHeadlinesCell.swift */,
+				52770E7F2B251813007EBC45 /* TopDetailVC.swift */,
+				52770E722B251281007EBC45 /* ShowTopArticlesVC.swift */,
+				52770E702B251264007EBC45 /* ChooseParamsVC.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		52770E642B250ECD007EBC45 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +107,7 @@
 			children = (
 				52770E7A2B251626007EBC45 /* Utils */,
 				52770E672B250F1D007EBC45 /* Extensions */,
+				52541F662B25C392003D0B88 /* CustomWidgets.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -100,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				52770E682B250F28007EBC45 /* UIViewExtension.swift */,
+				52541F682B25C63C003D0B88 /* StackViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,10 +143,7 @@
 		52770E6C2B25108D007EBC45 /* TopHeadlines */ = {
 			isa = PBXGroup;
 			children = (
-				52770E702B251264007EBC45 /* ChooseParamsVC.swift */,
-				52770E722B251281007EBC45 /* ShowTopArticlesVC.swift */,
-				52770E7F2B251813007EBC45 /* TopDetailVC.swift */,
-				52770E812B251847007EBC45 /* TopHeadlinesCell.swift */,
+				52541F652B25BBCB003D0B88 /* view */,
 			);
 			path = TopHeadlines;
 			sourceTree = "<group>";
@@ -274,6 +288,7 @@
 				52770E732B251281007EBC45 /* ShowTopArticlesVC.swift in Sources */,
 				527C4EAB2B239DBC0086D0F6 /* NetworkHelper.swift in Sources */,
 				52770E792B25133B007EBC45 /* ShowEveryArticlesVC.swift in Sources */,
+				52541F672B25C392003D0B88 /* CustomWidgets.swift in Sources */,
 				527C4EB42B23A8DE0086D0F6 /* model.swift in Sources */,
 				52770E822B251847007EBC45 /* TopHeadlinesCell.swift in Sources */,
 				527C4E992B239D450086D0F6 /* ViewController.swift in Sources */,
@@ -281,6 +296,7 @@
 				527C4EB22B23A77C0086D0F6 /* NetworkManager.swift in Sources */,
 				52770E7E2B2516AB007EBC45 /* CategoriesTop.swift in Sources */,
 				52770E842B25185A007EBC45 /* EverythingCell.swift in Sources */,
+				52541F692B25C63C003D0B88 /* StackViewExtension.swift in Sources */,
 				52770E712B251264007EBC45 /* ChooseParamsVC.swift in Sources */,
 				527C4E952B239D450086D0F6 /* AppDelegate.swift in Sources */,
 				52770E862B251876007EBC45 /* EverythingDetailVC.swift in Sources */,
